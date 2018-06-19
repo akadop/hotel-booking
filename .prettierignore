@@ -3,4 +3,4 @@ node_modules
 .next
 now.json
 now-secrets.json
-theme.js
+util.js

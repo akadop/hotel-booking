@@ -1,25 +1,25 @@
-const { IgnorePlugin } = require('webpack')
-const Dotenv = require('dotenv-webpack')
-const optimizedImages = require('next-optimized-images')
-const webpack = require('webpack')
-const withPlugins = require('next-compose-plugins')
+const { IgnorePlugin } = require('webpack');
+const Dotenv = require('dotenv-webpack');
+const optimizedImages = require('next-optimized-images');
+const webpack = require('webpack');
+const withPlugins = require('next-compose-plugins');
 
 const nextConfig = {
   webpack: (config, { dev }) => {
-    const webpackPlugins = config.plugins
-    const webpackRules = config.module.rules
-    const originalEntry = config.entry
+    const webpackPlugins = config.plugins;
+    const webpackRules = config.module.rules;
+    const originalEntry = config.entry;
 
     config.entry = async () => {
-      const entries = await originalEntry()
+      const entries = await originalEntry();
 
       // loading polyfills before bundle
       if (entries['main.js']) {
-        entries['main.js'].unshift('./static/scripts/polyfill.js')
+        entries['main.js'].unshift('./static/scripts/polyfill.js');
       }
 
-      return entries
-    }
+      return entries;
+    };
 
     const customWebpackConfig = {
       plugins: {
@@ -51,19 +51,19 @@ const nextConfig = {
           // url loader no longer needed after using next-images
         ]
       }
-    }
+    };
 
     if (!dev) {
-      webpackPlugins.push(...customWebpackConfig.plugins.prod)
+      webpackPlugins.push(...customWebpackConfig.plugins.prod);
     }
 
-    webpackRules.push(...customWebpackConfig.rules.base)
-    webpackPlugins.push(...customWebpackConfig.plugins.base)
+    webpackRules.push(...customWebpackConfig.rules.base);
+    webpackPlugins.push(...customWebpackConfig.plugins.base);
 
-    config.stats = { colors: true }
+    config.stats = { colors: true };
 
-    return config
+    return config;
   }
-}
+};
 
-module.exports = withPlugins([optimizedImages], nextConfig)
+module.exports = withPlugins([optimizedImages], nextConfig);
