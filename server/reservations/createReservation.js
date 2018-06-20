@@ -16,7 +16,7 @@ const createReservation = (req, res) => {
     const newReservation = { id, ...reservation };
     reservationsList.push(newReservation);
 
-    fs.writeFileSync(PROCESS.ENV.MOCK_DATA_LOCATION, JSON.stringify(reservationsList, null, 2));
+    fs.writeFileSync(process.env.MOCK_DATA_LOCATION, JSON.stringify(reservationsList, null, 2));
     createReservationLogger.success('Added new reservation to list ("./mock.json")');
     return res
       .status(200)

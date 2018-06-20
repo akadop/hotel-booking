@@ -1,5 +1,4 @@
 const { gql } = require('apollo-boost');
-
 const { createReservationResolver } = require('./resolvers/createReservation');
 const { getAllReservationsResolver } = require('./resolvers/getAllReservations');
 const { getReservationByIdResolver } = require('./resolvers/getReservationById');
@@ -8,6 +7,7 @@ const reservationTypeDefs = gql`
   extend type Query {
     # retrieves reservation based on ID
     getReservationById(id: String!): ReservationDetails
+
     # retrieves all reservations
     getAllReservations: [ReservationDetails]
   }

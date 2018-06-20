@@ -1,6 +1,6 @@
 {
     "name": "hotel-booking",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Hotel Booking",
     "main": "server/index.js",
     "author": "Ahmed Alahmady<aalahmady@gmail.com>",
@@ -10,7 +10,6 @@
     "scripts": {
       "build": "next build",
       "deploy": "next start",
-      "devs": "next",
       "dev": "nodemon -w server/index.js server/index.js",
       "start": "NODE_ENV=production node server/index.js",
       "format": "prettier --write --ignore-path .gitignore \"*/**/*.js\" \"server/*/**/*.js\" \"pages/*.js\""

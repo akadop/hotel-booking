@@ -1,16 +1,29 @@
+require('isomorphic-unfetch');
 const signale = require('signale');
 
-const getReservationByIdResolverLogger = signale.scope('getReservationByIdResolver()');
+const getReservationsByIdResolverLogger = signale.scope('getReservationByIdResolver()');
 
-const getReservationByIdResolver = async (_root, _args, context) => {
+const getReservationById = ({ id }) => {
+  const url = process.env.BASE_URL + process.env.RESERVATIONS_ENDPOINT;
+  const parameterizedUrl = url + `/${id}`;
+  return fetch(parameterizedUrl, {
+    method: 'GET',
+    headers: {
+      'Cache-Control': 'no-cache',
+      'Content-Type': 'application/json'
+    }
+  }).then(res => res.json());
+};
+
+const getReservationByIdResolver = async (_root, args, _context) => {
   try {
-    const { reservations } = context;
     const { id } = args;
-    const data = await reservations.getReservationById({ id });
+    const data = await getReservationById({ id });
     return data;
   } catch (err) {
     if (err instanceof Error) {
-      getReservationsResolverLogger.debug('error  :', err);
+      process.env.NODE_ENV !== 'production' &&
+        getReservationsByIdResolverLogger.debug('error  :', JSON.stringify(err));
     }
   }
 };

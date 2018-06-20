@@ -30,6 +30,7 @@ app.prepare().then(() => {
     .use(bodyParser.json())
     .use(cors())
     .options('*', cors())
+    .disable('x-powered-by')
     .post(RESERVATIONS_ENDPOINT, createReservation)
     .get(RESERVATIONS_ENDPOINT, getAllReservations)
     .get(RESERVATIONS_BY_ID_ENDPOINT, getReservationById)
