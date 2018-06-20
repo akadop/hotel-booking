@@ -66,15 +66,14 @@ const FindReservation = ({ router }) => {
                       </Card>
                     );
                   }
-                  return (
-                    <Columns>
-                      <FindReservationForm handleSubmit={handleSubmit} />
-                    </Columns>
-                  );
+                  return;
                 }}
               </Query>
             )}
           </CardWrapper>
+          <Columns>
+            <FindReservationForm handleSubmit={handleSubmit} />
+          </Columns>
         </GridBody>
       </Content>
     </Grid>

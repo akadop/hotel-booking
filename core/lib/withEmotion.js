@@ -1,4 +1,4 @@
-import { Goop, Main } from '../../components/layout';
+import { Footer, Goop, Main } from '../../components/layout';
 
 import { Component } from 'react';
 import { ThemeProvider } from 'emotion-theming';
@@ -21,6 +21,7 @@ const withEmotion = ComposedComponent => {
         <ThemeProvider theme={theme}>
           <Main>
             <ComposedComponent {...this.props} />
+            <Footer />
             <Goop goop={'#goop-two'} />
           </Main>
         </ThemeProvider>
