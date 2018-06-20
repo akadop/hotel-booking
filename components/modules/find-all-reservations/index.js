@@ -16,8 +16,8 @@ const AllReservations = () => (
       <GridBody>
         <Columns>
           <Text>
-            There is a ton of fake data in the JSON, so i've limited it to 50 results per call via a
-            pagination cursor.
+            There is a ton of fake data in the JSON, so i've limited it to around 40 results per
+            call via a pagination cursor.
           </Text>
         </Columns>
         <CardWrapper>

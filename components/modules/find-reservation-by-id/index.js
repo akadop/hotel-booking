@@ -49,7 +49,6 @@ const FindReservation = ({ router }) => {
                       </Card>
                     );
                   }
-
                   if (data) {
                     const {
                       arrivalDate,
@@ -70,7 +69,6 @@ const FindReservation = ({ router }) => {
                       </Card>
                     );
                   }
-
                   return null;
                 }}
               </Query>
