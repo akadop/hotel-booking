@@ -22,6 +22,7 @@ const nextConfig = {
             /graphql$/,
             /graphql-tools$/,
             /express$/,
+            /node-cache$/,
             /moment$/,
             /signale$/,
             /uuid$/
