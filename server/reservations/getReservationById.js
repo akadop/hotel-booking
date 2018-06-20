@@ -1,7 +1,12 @@
 const fs = require('fs');
 
 const getReservationById = (req, res, next) => {
-  let data = fs.readFileSync(process.env.MOCK_DATA_LOCATION);
+  const dataLocation =
+    process.env.NODE_ENV === 'production'
+      ? process.env.MOCK_DATA_LOCATION_PROD
+      : process.env.MOCK_DATA_LOCATION;
+
+  let data = fs.readFileSync(dataLocation);
   let reservationsList = JSON.parse(data);
 
   const { id } = req.params;

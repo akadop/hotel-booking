@@ -1,8 +1,14 @@
 const fs = require('fs');
 
 const getAllReservations = (req, res) => {
-  let data = fs.readFileSync(process.env.MOCK_DATA_LOCATION);
+  const dataLocation =
+    process.env.NODE_ENV === 'production'
+      ? process.env.MOCK_DATA_LOCATION_PROD
+      : process.env.MOCK_DATA_LOCATION;
+
+  let data = fs.readFileSync(dataLocation);
   let parsedData = JSON.parse(data);
+
   let startFrom;
   let endFrom;
 
