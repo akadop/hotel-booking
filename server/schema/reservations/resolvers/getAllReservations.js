@@ -21,13 +21,11 @@ const getAllReservations = ({ cursor }) => {
 
 const getAllReservationsResolver = async (_root, args, _context) => {
   try {
-    const data = await getAllReservations({ cursor: args.cursor ? args.cursor : 0 });
+    const data = await getAllReservations({ cursor: args.cursor ? args.cursor : 1 });
     return data;
   } catch (err) {
-    if (err instanceof Error) {
-      process.env.NODE_ENV !== 'production' &&
-        getAllReservationsResolverLogger.debug('error  :', err);
-    }
+    process.env.NODE_ENV !== 'production' &&
+      getAllReservationsResolverLogger.debug('error  :', err);
   }
 };
 

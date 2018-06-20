@@ -10,10 +10,10 @@ const getAllReservations = (req, res) => {
   startFrom = parseInt(req.query.cursor, 10);
 
   endFrom = startFrom + 39;
-  console.log(startFrom, endFrom);
-  const reservations = parsedData.slice(startFrom, endFrom);
 
+  const reservations = parsedData.slice(startFrom, endFrom);
   const id = 'RESERVATION_LIST_' + startFrom + '__' + endFrom;
+
   return res
     .status(200)
     .send({ id, reservations })

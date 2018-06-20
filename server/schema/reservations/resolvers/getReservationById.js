@@ -21,10 +21,8 @@ const getReservationByIdResolver = async (_root, args, _context) => {
     const data = await getReservationById({ id });
     return data;
   } catch (err) {
-    if (err instanceof Error) {
-      process.env.NODE_ENV !== 'production' &&
-        getReservationsByIdResolverLogger.debug('error  :', JSON.stringify(err));
-    }
+    process.env.NODE_ENV !== 'production' &&
+      getReservationsByIdResolverLogger.debug('error  :', JSON.stringify(err));
   }
 };
 

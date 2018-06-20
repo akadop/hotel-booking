@@ -1,7 +1,8 @@
+import BookRoom from '../components/modules/book-room';
 import WithAll from '../core/lib/withAll';
 
 const Index = () => {
-  return <h1>Hi</h1>;
+  return <BookRoom />;
 };
 
 export default WithAll(Index);

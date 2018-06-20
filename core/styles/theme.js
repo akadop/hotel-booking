@@ -5,7 +5,7 @@ const placeholder = '#A3AFBF';
 const purple = '#540CFA';
 
 const neutrals = {
-  n100: '#FAFBFC',
+  n100: '#F8F7FC',
   n300: '#D8DDE1',
   n500: '#9DA7B1',
   n700: '#5C656F',
@@ -60,6 +60,7 @@ export const zIndex = {
 export default {
   borderRadius,
   boxShadow,
+  fontWeight,
   colors,
   transitions,
   zIndex

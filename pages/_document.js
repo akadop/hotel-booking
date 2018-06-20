@@ -1,9 +1,9 @@
 import Document, { Head, Main, NextScript } from 'next/document';
+import { Sprites, injectGlobalStyles } from '../core/styles';
 
 import Helmet from 'react-helmet';
 import React from 'react';
 import { extractCritical } from 'emotion-server';
-import injectGlobalStyles from '../core/styles/global-style';
 
 export default class PageDocument extends Document {
   static async getInitialProps({ renderPage }) {
@@ -46,6 +46,7 @@ export default class PageDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <Sprites />
         </body>
       </html>
     );

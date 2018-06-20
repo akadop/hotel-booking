@@ -19,12 +19,10 @@ const createReservationResolver = async (_root, args, _context) => {
   try {
     const { input } = args;
     const data = await createReservation(input);
+    console.log(data);
     return data;
   } catch (err) {
-    if (err instanceof Error) {
-      process.env.NODE_ENV !== 'production' &&
-        createReservationsLogger.debug('error  :', JSON.stringify(err));
-    }
+    process.env.NODE_ENV !== 'production' && createReservationsLogger.debug('error:', err);
   }
 };
 

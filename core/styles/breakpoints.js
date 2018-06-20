@@ -21,7 +21,7 @@ export const fromBreakpoint = breakpoint => {
   const ems = breakpointPx / 16;
   return (...args) => css`
     @media (min-width: ${ems}em) {
-      ${args};
-    }
+      ${args}
+    };
   `;
 };

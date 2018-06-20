@@ -1,5 +1,6 @@
+import { Goop, Main } from '../../components/layout';
+
 import { Component } from 'react';
-import { Main } from '../../components/layout';
 import { ThemeProvider } from 'emotion-theming';
 import { getDisplayName } from '../utils';
 import { hydrate } from 'react-emotion';
@@ -20,6 +21,7 @@ const withEmotion = ComposedComponent => {
         <ThemeProvider theme={theme}>
           <Main>
             <ComposedComponent {...this.props} />
+            <Goop goop={'#goop-two'} />
           </Main>
         </ThemeProvider>
       );

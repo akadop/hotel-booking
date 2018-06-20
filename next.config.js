@@ -8,18 +8,6 @@ const nextConfig = {
   webpack: (config, { dev }) => {
     const webpackPlugins = config.plugins;
     const webpackRules = config.module.rules;
-    const originalEntry = config.entry;
-
-    config.entry = async () => {
-      const entries = await originalEntry();
-
-      // loading polyfills before bundle
-      if (entries['main.js']) {
-        entries['main.js'].unshift('./static/scripts/polyfill.js');
-      }
-
-      return entries;
-    };
 
     const customWebpackConfig = {
       plugins: {

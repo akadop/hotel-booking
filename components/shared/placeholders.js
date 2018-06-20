@@ -12,20 +12,6 @@ const PlaceholderWrapper = styled.div`
   }
 `;
 
-export const ImagePlaceholder = () => (
-  <PlaceholderWrapper>
-    <ContentLoader
-      height={160}
-      width={240}
-      speed={2}
-      primaryColor={'#f3f3f3'}
-      secondaryColor={'#ecebeb'}
-    >
-      <rect x="0" y="0" rx="5" ry="5" width="240" height="160" />
-    </ContentLoader>
-  </PlaceholderWrapper>
-);
-
 export const TextPlaceholder = () => (
   <PlaceholderWrapper>
     <ContentLoader

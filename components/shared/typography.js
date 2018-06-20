@@ -12,10 +12,16 @@ export const Title = styled.h1`
   `)};
 `;
 
-export const SubTitle = styled.h2`
-  font-size: 2.25rem;
-  letter-spacing: -1.4px;
+export const P = styled.p`
+  color: ${props => props.theme.colors.n900};
   line-height: 1.25;
+  font-size: 0.9em;
+  &:last-child {
+    margin: 0.5em 0 1em 0;
+  }
+  ${fromBreakpoint(BREAKPOINTS.DESKTOP)(css`
+    font-size: 1em;
+  `)};
 `;
 
 export const Text = styled.p`

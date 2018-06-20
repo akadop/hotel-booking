@@ -20,13 +20,11 @@ const createReservation = (req, res) => {
     createReservationLogger.success('Added new reservation to list ("./mock.json")');
     return res
       .status(200)
-      .send({ id })
+      .send(newReservation)
       .end();
   } catch (err) {
-    if (err instanceof Error) {
-      createReservationLogger.debug(err);
-      res.status(500).end();
-    }
+    createReservationLogger.debug(err);
+    res.status(500).end();
   }
 };
 
