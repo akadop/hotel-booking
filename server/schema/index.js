@@ -1,16 +1,16 @@
 const { gql } = require('apollo-boost');
-const merge = require('lodash/merge');
 const { makeExecutableSchema } = require('graphql-tools');
+const { ReservationsModel } = require('./reservations/reservationsModel');
+const { reservationTypeDefs, reservationResolvers } = require('./reservations');
+const merge = require('lodash/merge');
 
 const rootSchema = gql`
   type Query {
     version: String!
   }
-
   type Mutation {
     version: String!
   }
-
   schema {
     query: Query
     mutation: Mutation
@@ -26,12 +26,23 @@ const rootResolvers = {
   }
 };
 
-const mergedTypeDefs = [rootSchema];
-const mergedResolvers = merge({}, rootResolvers);
-
 const schema = makeExecutableSchema({
-  typeDefs: mergedTypeDefs,
-  resolvers: mergedResolvers
+  typeDefs: [rootSchema, reservationTypeDefs],
+  resolvers: merge({}, rootResolvers)
 });
 
-module.exports = { schema };
+const graphqlConfig = {
+  schema,
+  context: () => {
+    const reservations = new ReservationsModel;
+    return {
+      reservations
+    };
+  },
+  tracing: true,
+  cacheControl: {
+    defaultMaxAge: 2400
+  }
+};
+
+module.exports = { graphqlConfig };

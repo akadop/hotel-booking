@@ -1,11 +1,11 @@
 {
     "name": "hotel-booking",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Hotel Booking",
     "main": "server/index.js",
     "author": "Ahmed Alahmady<aalahmady@gmail.com>",
     "engines": {
-      "node": "8.9.4"
+      "node": "8.9.x"
     },
     "scripts": {
       "build": "next build",
@@ -17,7 +17,7 @@
     },
     "prettier": {
       "arrowParens": "avoid",
-      "printWidth": 80,
+      "printWidth": 100,
       "semi": true,
       "singleQuote": true,
       "trailingComma": "none"
@@ -43,7 +43,8 @@
       "react-final-form": "3.6.2",
       "react-helmet": "5.2.0",
       "react-intersection-observer": "5.0.5",
-      "react": "16.4.1"
+      "react": "16.4.1",
+      "uuid": "3.2.1"
     },
     "devDependencies": {
       "babel-plugin-emotion": "^9.2.0",

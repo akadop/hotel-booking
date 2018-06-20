@@ -5,7 +5,7 @@ export default styled.main`
   background: ${props => props.theme.colors.white};
   flex: auto;
   flex-flow: row wrap;
-  padding: 0 0 0;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
+  min-height: 100vh;
 `;

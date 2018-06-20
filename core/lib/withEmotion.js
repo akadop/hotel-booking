@@ -1,6 +1,5 @@
-import { Main, Wrapper } from '../../components/layout';
-
 import { Component } from 'react';
+import { Main } from '../../components/layout';
 import { ThemeProvider } from 'emotion-theming';
 import { getDisplayName } from '../utils';
 import { hydrate } from 'react-emotion';
@@ -19,11 +18,9 @@ const withEmotion = ComposedComponent => {
     render() {
       return (
         <ThemeProvider theme={theme}>
-          <Wrapper>
-            <Main>
-              <ComposedComponent {...this.props} />
-            </Main>
-          </Wrapper>
+          <Main>
+            <ComposedComponent {...this.props} />
+          </Main>
         </ThemeProvider>
       );
     }

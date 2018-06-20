@@ -147,4 +147,4 @@ export default `
   canvas {
     display: inline-block;
   }
-`
+`;

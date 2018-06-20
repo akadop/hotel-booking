@@ -20,11 +20,8 @@ export const isBetween = (value, min, max) => {
 export const isEmail = value => regexSet.emailRegex.test(value);
 export const isInteger = value => regexSet.integerRegex.test(value);
 
-export const isValidName = value =>
-  regexSet.alphaRegex.test(value) && value.length >= 3;
+export const isValidName = value => regexSet.alphaRegex.test(value) && value.length >= 3;
 
-export const isValidPhoneNumber = value =>
-  regexSet.phoneNumberRegex.test(value);
+export const isValidPhoneNumber = value => regexSet.phoneNumberRegex.test(value);
 
-export const isAlphaNum = value =>
-  regexSet.alphaNumericRegex.test(value) && value.length > 0;
+export const isAlphaNum = value => regexSet.alphaNumericRegex.test(value) && value.length > 0;

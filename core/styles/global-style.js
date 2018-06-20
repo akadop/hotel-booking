@@ -1,9 +1,5 @@
 import { colors, fontWeight } from './theme';
-import {
-  fontGlobalStyle,
-  imagesGlobalStyle,
-  linksGlobalStyle
-} from './elements';
+import { fontGlobalStyle, imagesGlobalStyle, linksGlobalStyle } from './elements';
 import { normalize, reset } from './generic';
 
 import { injectGlobal } from 'react-emotion';

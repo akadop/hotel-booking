@@ -1,0 +1,37 @@
+[
+  {
+    "arrivalDate": "6/19/18",
+    "departureDate": "6/23/18",
+    "hotelName": "Hotel 1",
+    "id": "1111",
+    "name": "Ahmed Alahmady"
+  },
+  {
+    "id": "19a6dc3a-a213-4360-8cb7-3b4f4ddf04b0",
+    "name": "Ahmed Alahmady",
+    "hotelName": "Ahmeds Hotel",
+    "arrivalDate": "06/01/2018",
+    "departureDate": "07/23/2019"
+  },
+  {
+    "id": "45676008-3759-4eda-90a7-09c0e56926de",
+    "name": "Customer 1",
+    "hotelName": "Ahmeds Hotel",
+    "arrivalDate": "06/01/2018",
+    "departureDate": "07/23/2019"
+  },
+  {
+    "id": "35c14135-dd64-4bc5-9b83-7291311b5f9a",
+    "name": "Customer 2",
+    "hotelName": "Another Hotel",
+    "arrivalDate": "04/01/2018",
+    "departureDate": "07/23/2019"
+  },
+  {
+    "id": "88a95f56-0e37-4189-b1ba-1ceb79487487",
+    "name": "Customer 2",
+    "hotelName": "Another Hotel",
+    "arrivalDate": "04/01/2018",
+    "departureDate": "07/23/2019"
+  }
+]

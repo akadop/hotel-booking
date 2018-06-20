@@ -19,10 +19,9 @@ export default ComposedComponent => {
       const apollo = initApollo();
 
       try {
-        await getDataFromTree(
-          <ComposedComponent ctx={ctx} {...composedInitialProps} />,
-          { client: apollo }
-        );
+        await getDataFromTree(<ComposedComponent ctx={ctx} {...composedInitialProps} />, {
+          client: apollo
+        });
       } catch (error) {}
 
       if (!process.browser) {

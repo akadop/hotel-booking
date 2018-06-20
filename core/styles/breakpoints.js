@@ -16,12 +16,12 @@ export const BREAKPOINT_VALUES = {
   desktopFull: 1200
 };
 
-export const fromBreakpoint = (breakpoint) => {
-  const breakpointPx = BREAKPOINT_VALUES[breakpoint]
-  const ems = breakpointPx / 16
+export const fromBreakpoint = breakpoint => {
+  const breakpointPx = BREAKPOINT_VALUES[breakpoint];
+  const ems = breakpointPx / 16;
   return (...args) => css`
     @media (min-width: ${ems}em) {
-      ${args}
-    };
-  `
-}
+      ${args};
+    }
+  `;
+};

@@ -26,4 +26,4 @@ export default `
     min-width: 0;
     border: 0;
   }
-`
+`;
