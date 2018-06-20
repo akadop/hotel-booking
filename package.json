@@ -1,6 +1,6 @@
 {
     "name": "hotel-booking",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Hotel Booking",
     "main": "server/index.js",
     "author": "Ahmed Alahmady<aalahmady@gmail.com>",

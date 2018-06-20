@@ -3,8 +3,13 @@ const signale = require('signale');
 
 const getAllReservationsResolverLogger = signale.scope('getAllReservationsResolver()');
 
-const getAllReservations = () => {
-  const url = process.env.BASE_URL + process.env.RESERVATIONS_ENDPOINT;
+const getAllReservations = ({ cursor }) => {
+  let url = process.env.BASE_URL + process.env.RESERVATIONS_ENDPOINT;
+
+  if (cursor) {
+    url = process.env.BASE_URL + process.env.RESERVATIONS_ENDPOINT + `?cursor=${cursor}`;
+  }
+
   return fetch(url, {
     method: 'GET',
     headers: {
@@ -14,14 +19,14 @@ const getAllReservations = () => {
   }).then(res => res.json());
 };
 
-const getAllReservationsResolver = async (_root, _args, _context) => {
+const getAllReservationsResolver = async (_root, args, _context) => {
   try {
-    const data = await getAllReservations();
+    const data = await getAllReservations({ cursor: args.cursor ? args.cursor : 0 });
     return data;
   } catch (err) {
     if (err instanceof Error) {
       process.env.NODE_ENV !== 'production' &&
-        getAllReservationsResolverLogger.debug('error  :', JSON.stringify(err));
+        getAllReservationsResolverLogger.debug('error  :', err);
     }
   }
 };

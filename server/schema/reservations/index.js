@@ -9,7 +9,7 @@ const reservationTypeDefs = gql`
     getReservationById(id: String!): ReservationDetails
 
     # retrieves all reservations
-    getAllReservations: [ReservationDetails]
+    getAllReservations(cursor: Int): ReservationList
   }
 
   extend type Mutation {
@@ -30,6 +30,11 @@ const reservationTypeDefs = gql`
     hotelName: String!
     arrivalDate: String!
     departureDate: String!
+  }
+
+  type ReservationList {
+    id: ID!
+    reservations: [ReservationDetails]
   }
 `;
 
