@@ -24,35 +24,31 @@ const BookRoom = () => {
             return <TextPlaceholder />;
           }
 
+          const determineTitle = data
+            ? `Thanks, ${data.createReservation.name}, room at
+                    ${data.createReservation.hotelName}   has been booked!`
+            : `enjoy life by booking a room now`;
+
+          const determineParagraph = data
+            ? `Your reservation ID is ${data.createReservation.id}, set for your arrival on
+                      ${data.createReservation.arrivalDate}.`
+            : `Book hotels and resorts directly with Hilton to make your next business trip
+                      or vacation more relaxing and affordable.`;
+
           return (
             <Content>
               <TitleWrapper>
-                {data ? (
-                  <Title>
-                    Thanks, {data.createReservation.name}, room at
-                    {data.createReservation.hotelName} has been booked!
-                  </Title>
-                ) : (
-                  <Title>enjoy life by booking a room now.</Title>
-                )}
+                <Title>{determineTitle}</Title>
               </TitleWrapper>
               <GridBody>
                 <Columns>
-                  {data ? (
-                    <Text>
-                      Your reservation ID is {data.createReservation.id}, set for your arrival on
-                      {data.createReservation.arrivalDate}.
-                    </Text>
-                  ) : (
-                    <Text>
-                      Book hotels and resorts directly with Hilton to make your next business trip
-                      or vacation more relaxing and affordable.
-                    </Text>
-                  )}
+                  <Text>{determineParagraph}</Text>
                 </Columns>
-                <Columns>
-                  <ReservationForm handleSubmit={handleSubmit} />
-                </Columns>
+                {!data && (
+                  <Columns>
+                    <ReservationForm handleSubmit={handleSubmit} />
+                  </Columns>
+                )}
               </GridBody>
             </Content>
           );

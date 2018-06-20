@@ -3,7 +3,7 @@ import { Columns, Content, Grid, GridBody, Text, TitleWrapper } from '../../shar
 import { P, Title } from '../../shared/typography';
 
 import FIND_RESERVATION_QUERY from './findReservationQuery';
-import FindReservationForm from './form';
+import FindReservationForm from './find-reservation-form';
 import { Query } from 'react-apollo';
 import { TextPlaceholder } from '../../shared/placeholders';
 import exampleIds from './example-ids';
@@ -31,9 +31,6 @@ const FindReservation = ({ router }) => {
               Looking for details about your reservation? just type in your reservation id!
             </Text>
             <Text>hint: check the console.log for a list of them.</Text>
-          </Columns>
-          <Columns>
-            <FindReservationForm handleSubmit={handleSubmit} />
           </Columns>
           <CardWrapper>
             {router.query.id && (
@@ -69,7 +66,11 @@ const FindReservation = ({ router }) => {
                       </Card>
                     );
                   }
-                  return null;
+                  return (
+                    <Columns>
+                      <FindReservationForm handleSubmit={handleSubmit} />
+                    </Columns>
+                  );
                 }}
               </Query>
             )}
