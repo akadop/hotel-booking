@@ -11,6 +11,7 @@ const signale = require('signale');
 const { createReservation } = require('./reservations/createReservation');
 const { getAllReservations } = require('./reservations/getAllReservations');
 const { getReservationById } = require('./reservations/getReservationById');
+const { setInitialMockData } = require('./reservations/cache');
 
 const dev = process.env.NODE_ENV !== 'production';
 const PORT = parseInt(process.env.PORT, 10) || 4000;
@@ -31,6 +32,7 @@ app.prepare().then(() => {
     .use(cors())
     .options('*', cors())
     .disable('x-powered-by')
+
     .post(RESERVATIONS_ENDPOINT, createReservation)
     .get(RESERVATIONS_ENDPOINT, getAllReservations)
     .get(RESERVATIONS_BY_ID_ENDPOINT, getReservationById)
@@ -40,9 +42,13 @@ app.prepare().then(() => {
     .get(GRAPHIQL_ENDPOINT, graphiqlExpress({ endpointURL: GRAPHQL_ENDPOINT }))
 
     .get('*', (req, res) => handle(req, res))
+
     .listen(PORT, err => {
       serverLogger.success(`>> Express listening to port ${PORT}`);
       serverLogger.success(`>> Serving App on http://localhost:${PORT}`);
+
+      // set the initial mock data in the cache
+      setInitialMockData();
 
       if (err instanceof Error) {
         serverLogger.fatal(new Error('Error starting the server:', err));

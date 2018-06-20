@@ -21,7 +21,10 @@ const getAllReservations = ({ cursor }) => {
 
 const getAllReservationsResolver = async (_root, args, _context) => {
   try {
-    const data = await getAllReservations({ cursor: args.cursor ? args.cursor : 1 });
+    const data = await getAllReservations({
+      cursor: args.cursor ? args.cursor : 1
+    });
+
     return data;
   } catch (err) {
     process.env.NODE_ENV !== 'production' &&

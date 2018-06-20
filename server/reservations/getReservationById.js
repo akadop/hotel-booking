@@ -1,22 +1,16 @@
-const fs = require('fs');
+const { getMockData } = require('./cache');
 
 const getReservationById = (req, res, next) => {
-  const dataLocation =
-    process.env.NODE_ENV === 'production'
-      ? process.env.MOCK_DATA_LOCATION_PROD
-      : process.env.MOCK_DATA_LOCATION;
-
-  let data = fs.readFileSync(dataLocation);
-  let reservationsList = JSON.parse(data);
+  let data = getMockData();
 
   const { id } = req.params;
-  const findReservation = reservationsList.find(reservation => reservation.id === id);
+  const reservationExists = data.find(reservation => reservation.id === id);
 
-  if (findReservation) {
-    const locatedReservation = findReservation[0];
+  if (reservationExists) {
+    const locatedReservation = reservationExists[0];
     return res
       .status(200)
-      .send(findReservation)
+      .send(reservationExists)
       .end();
   } else {
     res.status(500);

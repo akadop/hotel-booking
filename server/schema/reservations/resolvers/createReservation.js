@@ -11,7 +11,12 @@ const createReservation = ({ arrivalDate, departureDate, hotelName, name }) => {
       'Cache-Control': 'no-cache',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ arrivalDate, departureDate, hotelName, name })
+    body: JSON.stringify({
+      arrivalDate,
+      departureDate,
+      hotelName,
+      name
+    })
   }).then(res => res.json());
 };
 
