@@ -56,6 +56,9 @@
       "prettier": "1.13.5",
       "prop-types": "15.6.2",
       "signale": "1.2.1"
+    },
+    "now": {
+      "alias": "hotel-booking-qolbzprthe"
     }
   }
   
