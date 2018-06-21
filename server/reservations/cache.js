@@ -8,7 +8,7 @@ const mockDataLogger = signale.scope('mockCache()');
 mockCache.on('expired', key => {
   if (key === 'mock') {
     mockDataLogger.pending('mock data cache expired');
-    setMockData();
+    setInitialMockData();
   }
 });
 
